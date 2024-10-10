@@ -1,9 +1,13 @@
-entrypoint = "main.sh"
-modules = ["bash"]
+modules = ["web", "nodejs-20", "nix"]
+run = "node index.js"
 
 [nix]
 channel = "stable-24_05"
 
 [deployment]
-run = ["bash", "main.sh"]
+run = ["sh", "-c", "node index.js"]
 deploymentTarget = "cloudrun"
+
+[[ports]]
+localPort = 8080
+externalPort = 80

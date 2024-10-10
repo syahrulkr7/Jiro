@@ -10,9 +10,6 @@ const app = express();
 
 app.use(express.json());
 
-// Serve static files from the 'public' directory
-app.use(express.static(path.join(__dirname, 'web', 'public')));
-
 app.use(router);
 
 // Endpoint to serve the API list
