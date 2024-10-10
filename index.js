@@ -12,6 +12,16 @@ app.use(express.json());
 
 app.use(router);
 
+// Serve config name and photo for use in the frontend
+app.get("/config-name", (req, res) => {
+  res.json({ 
+    name: global.config.name,
+    photo: global.config.photo
+  });
+});
+
+
+
 // Endpoint to serve the API list
 app.get("/api-list", (req, res) => {
   const apiList = Array.from(global.api.values()).map(api => api.config);
